@@ -1,0 +1,154 @@
+$base-color: royalblue;
+
+body,
+html {
+  box-sizing: border-box;
+  color: #171717;
+  font-family: arial;
+  font-weight: normal;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  // width: 100%;
+  margin: 0;
+  overflow: auto;
+  background-size: cover;
+  background-color: #ffffff;
+}
+body {
+  // overflow: auto;
+}
+
+main {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+  // background-color: #ffffff17;
+  position: absolute;
+  top: 0;
+  left: 0;
+
+
+  &[v-cloak] {
+    display: none;
+  }
+
+  .page {
+    flex-grow: 1;
+  }
+}
+
+header {
+  // position: relative;
+  display: flex;
+  flex-direction: row;
+
+  justify-content: space-around;
+  align-items: center;
+  margin: 0;
+  border: none;
+  height: 100%;
+  width: 100%;
+  padding: 0;
+  background-color: #f7f7f7;
+  color: black;
+  padding: 15px;
+  transition:max-height 0.3s ease-out; // note that we're transitioning max-height, not height!
+
+  .title {
+    flex: 1;
+  }
+  .input-div {
+    flex: 1;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    .vs-input {
+      margin-left: 7px;
+      width: 100%;
+      color: #373737;
+    }
+    input {
+      margin-left: 7px;
+      width: 100%;
+    }
+  }
+  .header-logo {
+    height: 100px;
+  }
+
+  .header-title {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    height: 40px;
+    border-radius: 7px;
+    // background-color: #eeeeee22;
+    background-color: transparent;
+    color: $base-color;
+    width: 100%;
+
+    &.dark {
+      color: yello;
+    }
+
+    .title {
+      text-transform: uppercase;
+    }
+  }
+}
+
+footer {
+  box-sizing: border-box;
+}
+
+#page-success {
+  // height: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  color: royalblue;
+  overflow: scroll;
+  flex-wrap: wrap;
+
+  &.dark {
+    background-color: #000015;
+    color: #d7d7d7;
+  }
+
+  a {
+    color: inherit;
+    font-size: inherit;
+  }
+
+  .iframe {
+    padding: 15px;
+    &.upper {
+      display: flex;
+      flex-direction: row;
+
+      justify-content: space-around;
+      align-items: center;
+      margin: 0;
+      border: none;
+      width: 100%;
+    }
+  }
+  iframe {
+    border: none;
+    box-shadow: #f7f7f7aa 0px 0px 15px;
+    pointer-events: none;
+  }
+}
+
+#page-notfound {}
+
+#page-root {}
+@import "mobile";
