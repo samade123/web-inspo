@@ -15,7 +15,7 @@ html {
   margin: 0;
   overflow: auto;
   background-size: cover;
-  background-color: #ffffff;
+  background-color: #e7e7e7;
 }
 body {
   // overflow: auto;
@@ -25,6 +25,8 @@ main {
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
   height: 100%;
   width: 100%;
   // background-color: #ffffff17;
@@ -53,14 +55,25 @@ header {
   border: none;
   height: 100%;
   width: 100%;
-  padding: 0;
-  background-color: #f7f7f7;
+  // max-width: 1350px;
+  // padding: 5%;
   color: black;
-  padding: 15px;
-  transition:max-height 0.3s ease-out; // note that we're transitioning max-height, not height!
+  padding: 0;
+// margin: 15px;
+ transition:max-height 0.3s ease-out; // note that we're transitioning max-height, not height!
 
   .title {
     flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-end;
+    font-weight: bold;
+    height: 100%;
+    background-color: #009688;
+    color: #f7f7f7;
+    vertical-align: middle;
+    padding: 15px;
   }
   .input-div {
     flex: 1;
@@ -68,6 +81,10 @@ header {
     flex-direction: row;
     justify-content: flex-start;
     align-items: center;
+    padding: 15px;
+    font-size: 1.2em;
+    font-weight: bold;
+
     .vs-input {
       margin-left: 7px;
       width: 100%;
@@ -76,30 +93,7 @@ header {
     input {
       margin-left: 7px;
       width: 100%;
-    }
-  }
-  .header-logo {
-    height: 100px;
-  }
-
-  .header-title {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    height: 40px;
-    border-radius: 7px;
-    // background-color: #eeeeee22;
-    background-color: transparent;
-    color: $base-color;
-    width: 100%;
-
-    &.dark {
-      color: yello;
-    }
-
-    .title {
-      text-transform: uppercase;
+      flex: 1;
     }
   }
 }
@@ -110,6 +104,7 @@ footer {
 
 #page-success {
   // height: 100%;
+  min-width: 100%;
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -120,7 +115,9 @@ footer {
   z-index: 1;
 
   &.dark {
-    background-color: #000015;
+    // background-color: #000015;
+    background-color: #003399;
+
     color: #d7d7d7;
   }
 

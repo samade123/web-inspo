@@ -1,14 +1,8 @@
 <template>
 <article id="page-success" v-if="windowWidth > 1000" class="page" :class="dark ? 'dark' : null">
-  <!-- <div class="show">{{show}} {{currentUrl}}</div> -->
-
-  <div class="upper iframe" v-if="show">
-    <iframe v-if="windowWidth > 400" :src="currentUrl" :width="setWidth(375)" :height="setHeight(812)"></iframe>
-    <iframe v-if="windowWidth > 1100" :src="currentUrl" :width="setWidth(1024)" :height="setHeight(768)"></iframe>
-  </div>
-  <div class="lower iframe" v-if="show">
-    <iframe v-if="windowWidth > 1850" :src="currentUrl" :width="setWidth(1800)" :height="setHeight(780)"></iframe>
-  </div>
+<div class="">
+  This screen is too small
+</div>
 </article>
 </template>
 

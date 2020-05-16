@@ -33,6 +33,7 @@ var app = new Vue({
   data: {
     // currentURL: "https://www.bing.com/",
     currentURL: null,
+    liveURL: null,
     show: false,
     images: []
 
@@ -68,7 +69,7 @@ var app = new Vue({
             .then(imageBitmap => {
               this.images.push(imageBitmap)
 
-              setTimeout(()=>{
+              setTimeout(() => {
 
                 const canvas = this.$refs.canvas;
                 console.log(canvas)
@@ -77,7 +78,7 @@ var app = new Vue({
               }, 1000)
             })
             .catch(error => console.log(error));
-            });
+        });
     },
     grabFrameFunc() {
       this.imageCapture.grabFrame().then((bitmap) => {
@@ -99,9 +100,10 @@ var app = new Vue({
       let ratio = Math.min(canvas.width / img.width, canvas.height / img.height);
       let x = (canvas.width - img.width * ratio) / 2;
       let y = (canvas.height - img.height * ratio) / 2;
-      canvas.getContext('2d').clearRect(0, 0, canvas.width, canvas.height);
+      canvas.getContext('2d').clearRect(0, 0, img.width, canvas.height);
       canvas.getContext('2d').drawImage(img, 0, 0, img.width, img.height,
         x, y, img.width * ratio, img.height * ratio);
+
     },
     processPhoto(blob) { //gets blob data from camera and turns it into a Base 64 buffer
       this.images.push(URL.createObjectURL(blob));
@@ -110,6 +112,16 @@ var app = new Vue({
       //   var buf = new Buffer.from(base64, 'base64');
       // })
     },
+    paste() {
+      navigator.clipboard.readText()
+        .then(text => {
+          console.log('Pasted content: ', text);
+          this.liveURL = text;
+        })
+        .catch(err => {
+          console.error('Failed to read clipboard contents: ', err);
+        });
+    }
   },
   mounted() {}
 });
