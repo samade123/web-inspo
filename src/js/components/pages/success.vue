@@ -6,7 +6,7 @@
     <iframe v-if="windowWidth > 400" :src="currentUrl" :width="setWidth(375)" :height="setHeight(812)"></iframe>
     <iframe v-if="windowWidth > 1100" :src="currentUrl" :width="setWidth(1024)" :height="setHeight(768)"></iframe>
   </div>
-  <div class="lower iframe" v-if="show">
+  <div class="lower iframe" v-if="show" ref="iframeTwo">
     <iframe v-if="windowWidth > 1850" :src="currentUrl" :width="setWidth(1800)" :height="setHeight(780)"></iframe>
   </div>
 </article>

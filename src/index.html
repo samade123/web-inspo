@@ -20,7 +20,7 @@
 
 <body>
   <main v-cloak style="left: 0;">
-    <header :style="{maxHeight: currentURL ? '70px' : '100%'}">
+    <header :style="{maxHeight: currentURL ? '70px' : '100%'}" ref="header">
     <!-- <header :style="{maxHeight: currentURL ? '70px' : '100%', maxWidth: currentURL ? '100%' : '1350px'}"> -->
 
       <div class="title" :style="{fontSize: currentURL ? '16px' : '35px'}">

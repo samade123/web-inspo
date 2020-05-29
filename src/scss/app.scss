@@ -61,6 +61,7 @@ header {
   padding: 0;
 // margin: 15px;
  transition:max-height 0.3s ease-out; // note that we're transitioning max-height, not height!
+ box-shadow: #fff 0px 1px 5px;
 
   .title {
     flex: 1;
@@ -143,6 +144,7 @@ footer {
     border: none;
     box-shadow: #f7f7f7aa 0px 0px 15px;
     pointer-events: none;
+    zoom: 0.95;
   }
 
 }

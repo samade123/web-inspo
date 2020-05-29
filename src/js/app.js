@@ -56,6 +56,9 @@ var app = new Vue({
     screenshot() {
 
       // navigator.mediaDevices.getUserMedia({
+      console.log(this.$refs)
+      this.$refs.header.style.display="none"
+      // this.$refs.iframeTwo.s5tyle.display="none"
       navigator.mediaDevices.getDisplayMedia({
           video: true
         })

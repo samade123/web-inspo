@@ -4,6 +4,8 @@ const merge = require("webpack-merge")
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const TerserPlugin = require("terser-webpack-plugin")
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+
 
 
 
@@ -15,7 +17,7 @@ module.exports = merge(common, {
       filename: '[name]-[contentHash].css'
     }),
     new CleanWebpackPlugin(),
-    
+
     // new NpmInstallPlugin()
   ],
   optimization: {
