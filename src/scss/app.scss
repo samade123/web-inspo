@@ -29,6 +29,8 @@ main {
   align-items: center;
   height: 100%;
   width: 100%;
+  overflow: scroll;
+
   // background-color: #ffffff17;
   position: absolute;
   top: 0;
@@ -115,6 +117,7 @@ footer {
   flex-wrap: wrap;
   z-index: 1;
 
+
   &.dark {
     // background-color: #000015;
     background-color: #003399;
@@ -144,7 +147,7 @@ footer {
     border: none;
     box-shadow: #f7f7f7aa 0px 0px 15px;
     pointer-events: none;
-    zoom: 0.95;
+    // zoom: 0.95;
   }
 
 }

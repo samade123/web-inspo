@@ -45,7 +45,7 @@
       </div>
       <button v-if="currentURL" class="btn btn-primary"><i class="material-icons">settings</i></button>
     </header>
-    <page-success v-if="currentURL && windowWidth > 1000" :current-url="currentURL" :show="show"></page-success>
+    <page-success v-if="currentURL" :current-url="currentURL" :show="show"></page-success>
     <div class="image-modal" v-if="images[0]">
       <!-- <img :src="image" :key="image" v-for="image in images" alt=""> -->
       <canvas id="myCanvas" ref="canvas" width="1500" height="900">

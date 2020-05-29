@@ -1,13 +1,13 @@
 <template>
-<article id="page-success" v-if="windowWidth > 1000" class="page" :class="dark ? 'dark' : null">
+<article id="page-success" class="page" :class="dark ? 'dark' : null">
   <!-- <div class="show">{{show}} {{currentUrl}}</div> -->
 
   <div class="upper iframe" v-if="show">
-    <iframe v-if="windowWidth > 400" :src="currentUrl" :width="setWidth(375)" :height="setHeight(812)"></iframe>
-    <iframe v-if="windowWidth > 1100" :src="currentUrl" :width="setWidth(1024)" :height="setHeight(768)"></iframe>
+    <iframe :src="currentUrl" :width="setWidth(375)" :height="setHeight(812)" :style="{zoom: iframeZoom(375)}"></iframe>
+    <iframe :src="currentUrl" :width="setWidth(1024)" :height="setHeight(768)" :style="{zoom: iframeZoom(1024)}"></iframe>
   </div>
   <div class="lower iframe" v-if="show" ref="iframeTwo">
-    <iframe v-if="windowWidth > 1850" :src="currentUrl" :width="setWidth(1800)" :height="setHeight(780)"></iframe>
+    <iframe :src="currentUrl" :width="setWidth(1800)" :height="setHeight(780)" :style="{zoom: iframeZoom(1800)}"></iframe>
   </div>
 </article>
 </template>
@@ -46,6 +46,11 @@ export default {
 
   },
   methods: {
+    iframeZoom(width){
+      console.log( this.windowWidth, width, this.windowWidth/width);
+      let newVal = this.windowWidth/width - 0.1
+      if( this.windowWidth < width) return newVal;
+    },
     setWidth(num) {
       if (this.currentUrl) {
         setTimeout(() => {
