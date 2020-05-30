@@ -35,8 +35,9 @@ var app = new Vue({
     currentURL: null,
     liveURL: null,
     show: false,
-    images: []
-
+    images: [],
+    settings: false,
+    allowScroll: false,
   },
   watch: {
     currentURL() {

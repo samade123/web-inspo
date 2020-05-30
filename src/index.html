@@ -37,15 +37,27 @@
         <div class="url-label">
           Enter site URL Here:
         </div>
-        <button v-on:click="paste" class="btn btn-primary"><i class="material-icons">file_copy</i></button>
-        <input type="url" v-on:keyup.enter="currentURL = liveURL" class="form-control" v-model="liveURL"></input>
-        <button v-on:click="currentURL = liveURL" class="btn btn-primary">Enter</button>
+      </div>
+      <div class="settings-btn">
+        <vs-button type="flat" v-if="currentURL" @click="settings=!settings" class="btn btn-primary"><i class="material-icons">settings</i></vs-button>
 
-        <!-- <vs-input v-model="currentURL"></vs-input> -->
+        <transition name="fade">
+          <div class="settings-drop" v-if="settings">
+            <vs-list>
+              <vs-list-header title="Group 1"></vs-list-header>
+              <vs-list-item title="Snickerdoodle" subtitle="An excellent companion">
+                <vs-button color="danger">One action</vs-button>
+              </vs-list-item>
+              <vs-list-item title="Enable Iframe pointer" subtitle="Allows mouse activity within iframe for scroling clicking etc..">
+                <vs-checkbox v-model="allowScroll" color="danger" />
+              </vs-list-item>
+            </vs-list>
+          </div>
+        </transition>
       </div>
       <button v-if="currentURL" class="btn btn-primary"><i class="material-icons">settings</i></button>
     </header>
-    <page-success v-if="currentURL" :current-url="currentURL" :show="show"></page-success>
+    <page-success v-if="currentURL" :current-url="currentURL" :allow-scroll="allowScroll" :show="show"></page-success>
     <div class="image-modal" v-if="images[0]">
       <!-- <img :src="image" :key="image" v-for="image in images" alt=""> -->
       <canvas id="myCanvas" ref="canvas" width="1500" height="900">
