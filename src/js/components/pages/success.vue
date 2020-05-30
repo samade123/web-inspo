@@ -3,11 +3,11 @@
   <!-- <div class="show">{{show}} {{currentUrl}}</div> -->
 
   <div class="upper iframe" v-if="show">
-    <iframe :src="currentUrl" :width="setWidth(375)" :height="setHeight(812)" :style="{zoom: iframeZoom(375)}"></iframe>
-    <iframe :src="currentUrl" :width="setWidth(1024)" :height="setHeight(768)" :style="{zoom: iframeZoom(1024)}"></iframe>
+    <iframe :src="currentUrl" :width="setWidth(375)" :height="setHeight(812)" :style="{zoom: iframeZoom(375), pointerEvents: allowScroll ? 'inherit' : 'none' }"></iframe>
+    <iframe :src="currentUrl" :width="setWidth(1024)" :height="setHeight(768)" :style="{zoom: iframeZoom(1024), pointerEvents: allowScroll ? 'inherit' : 'none' }"></iframe>
   </div>
   <div class="lower iframe" v-if="show" ref="iframeTwo">
-    <iframe :src="currentUrl" :width="setWidth(1800)" :height="setHeight(780)" :style="{zoom: iframeZoom(1800)}"></iframe>
+    <iframe :src="currentUrl" :width="setWidth(1800)" :height="setHeight(780)" :style="{zoom: iframeZoom(1800), pointerEvents: allowScroll ? 'inherit' : 'none' }"></iframe>
   </div>
 </article>
 </template>
@@ -29,6 +29,9 @@ export default {
     show: {
       type: Boolean
     },
+    allowScroll: {
+      type: Boolean
+    },
   },
   data() {
     return {
@@ -48,7 +51,7 @@ export default {
   methods: {
     iframeZoom(width){
       console.log( this.windowWidth, width, this.windowWidth/width);
-      let newVal = this.windowWidth/width - 0.1
+      let newVal = this.windowWidth/width - 0.05
       if( this.windowWidth < width) return newVal;
     },
     setWidth(num) {

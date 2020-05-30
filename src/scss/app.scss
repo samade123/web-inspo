@@ -17,6 +17,7 @@ html {
   background-size: cover;
   background-color: #e7e7e7;
 }
+
 body {
   // overflow: auto;
 }
@@ -30,12 +31,10 @@ main {
   height: 100%;
   width: 100%;
   overflow: scroll;
-
   // background-color: #ffffff17;
   position: absolute;
   top: 0;
   left: 0;
-
 
   &[v-cloak] {
     display: none;
@@ -50,7 +49,6 @@ header {
   // position: relative;
   display: flex;
   flex-direction: row;
-
   justify-content: space-around;
   align-items: center;
   margin: 0;
@@ -60,45 +58,79 @@ header {
   // max-width: 1350px;
   // padding: 5%;
   color: black;
-  padding: 0;
-// margin: 15px;
- transition:max-height 0.3s ease-out; // note that we're transitioning max-height, not height!
- box-shadow: #fff 0px 1px 5px;
+  padding: 0; // margin: 15px;
+  // transition: max-height 0.3s ease-out; // note that we're transitioning max-height, not height!
+  transition: all 0.3s ease-out; // note that we're transitioning max-height, not height!
+  box-shadow: #4446 0 1px 4px;
+  z-index: 20;
 
   .title {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-end;
-    font-weight: bold;
-    height: 100%;
-    background-color: #009688;
-    color: #f7f7f7;
-    vertical-align: middle;
-    padding: 15px;
-  }
-  .input-div {
     flex: 1;
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
     align-items: center;
-    padding: 15px;
-    font-size: 1.2em;
+    font-weight: bold;
+    width: 100%;
+    height: 100%;
+    // background-color: #009688;
+    background-color: #ccce;
+    // background-color: #ae1158;
+    color: #f7f7f7;
+    vertical-align: middle;
+    padding: 0 15px;
+    .text {
+      flex: 1;
+    }
+  }
+
+  .input-div {
+    flex: 2;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 5px 0;
+    margin-top: 5px;
+    // font-size: 1.2em;
     font-weight: bold;
 
-    .vs-input {
-      margin-left: 7px;
-      width: 100%;
-      color: #373737;
-    }
+    // .vs-input {
+    //   margin-left: 7px;
+    //   width: 100%;
+    //   color: #373737;
+    // }
+
     input {
-      margin-left: 7px;
+      // margin-left: 7px;
       width: 100%;
       flex: 1;
     }
   }
+  .settings-btn {
+    position: relative;
+    padding: 5px;
+
+    .settings-drop {
+      // min-width: 200px;
+      min-height: 200px;
+      position: absolute;
+      top: 70px;
+      left: -250px;
+      right: 0;
+      margin-right: 10px;
+      border-radius: 7px;
+      background: #f7f7f7;
+
+
+      // visibility: hidden;
+      // opacity: 0;
+      // -prefixes-transition-property: opacity, visibility;
+      // -prefixes-transition-duration: .4s, 0s;
+      // -prefixes-transition-delay: 0s, .4s;
+    }
+  }
+
 }
 
 footer {
@@ -117,11 +149,10 @@ footer {
   flex-wrap: wrap;
   z-index: 1;
 
-
   &.dark {
     // background-color: #000015;
-    background-color: #003399;
-
+    // background-color: #003399;
+    background: transparent;
     color: #d7d7d7;
   }
 
@@ -132,10 +163,10 @@ footer {
 
   .iframe {
     padding: 15px;
+
     &.upper {
       display: flex;
       flex-direction: row;
-
       justify-content: space-around;
       align-items: center;
       margin: 0;
@@ -143,13 +174,13 @@ footer {
       width: 100%;
     }
   }
+
   iframe {
     border: none;
-    box-shadow: #f7f7f7aa 0px 0px 15px;
-    pointer-events: none;
+    box-shadow: #4446 0 0 4px;
+    // pointer-events: none;
     // zoom: 0.95;
   }
-
 }
 
 .image-modal {
@@ -177,3 +208,5 @@ footer {
 
 #page-root {}
 @import "mobile";
+@import "vuesax";
+@import "animate";

@@ -20,32 +20,64 @@
 
 <body>
   <main v-cloak style="left: 0;">
-    <header :style="{maxHeight: currentURL ? '70px' : '100%'}" ref="header">
-    <!-- <header :style="{maxHeight: currentURL ? '70px' : '100%', maxWidth: currentURL ? '100%' : '1350px'}"> -->
+    <header :style="{maxHeight: currentURL ? 'fit-content' : '100%'}" ref="header" :class="currentURL ? 'active' : false">
+      <!-- <header :style="{maxHeight: currentURL ? '70px' : '100%', maxWidth: currentURL ? '100%' : '1350px'}"> -->
 
-      <div class="title" :style="{fontSize: currentURL ? '16px' : '35px'}">
-        Responsive site Inspo
-      </div>
+      <div class="title" :style="{fontSize: currentURL ? '14px' : '35px'}">
+        <span class="text">
 
-      <div class="button"><button v-if="currentURL" v-on:click="screenshot" class="btn btn-primary">
-        <div><i class="material-icons">camera_alt</i></div><span>Take screenshot</span></button>
-      </div>
-      <div class="button"><button v-if="currentURL" v-on:click="screenshot" class="btn btn-primary">
-        <i class="material-icons">collections</i></button>
-      </div>
-      <div class="input-div">
-        <div class="url-label">
-          Enter site URL Here:
+          Responsive Web Checker
+        </span>
+        <div class="button">
+          <vs-button type="flat" v-if="(currentURL) && (navigator.mediaDevices)" v-on:click="screenshot" class="btn btn-primary">
+            <div><i class="material-icons">camera_alt</i></div><span>Take screenshot</span>
+          </vs-button>
         </div>
-        <button v-on:click="paste" class="btn btn-primary"><i class="material-icons">file_copy</i></button>
-        <input type="url" v-on:keyup.enter="currentURL = liveURL" class="form-control" v-model="liveURL"></input>
-        <button v-on:click="currentURL = liveURL" class="btn btn-primary">Enter</button>
-
-        <!-- <vs-input v-model="currentURL"></vs-input> -->
+        <div class="button">
+          <vs-button type="flat" v-if="currentURL" v-on:click="screenshot" class="btn btn-primary">
+            <i class="material-icons">collections</i>
+          </vs-button>
+        </div>
       </div>
-      <button v-if="currentURL" class="btn btn-primary"><i class="material-icons">settings</i></button>
+
+      <div class="input-div">
+        <!-- <div class="url-label">
+          Enter site URL Here:
+        </div> -->
+        <vs-button icon="file_copy" type="flat" v-if="navigator.clipboard && windowWidth > 600" v-on:click="paste" class="">
+          <!-- <i class="material-icons">file_copy</i> -->
+        </vs-button>
+        <vs-input type="url" label-placeholder="Enter Website URL" autofocus v-on:keyup.enter="currentURL = liveURL" v-model="liveURL"></vs-input>
+        <!-- <input type="url" v-on:keyup.enter="currentURL = liveURL" class="form-control" v-model="liveURL"></input> -->
+        <vs-button icon="file_copy" type="flat" v-if="navigator.clipboard && windowWidth < 600" v-on:click="paste" class="">
+          <!-- <i class="material-icons">file_copy</i> -->
+        </vs-button>
+
+        <div>
+          <vs-button type="flat" icon="public" v-on:click="currentURL = liveURL" class="">Enter</vs-button>
+        </div>
+        <div class="settings-btn">
+          <vs-button type="flat" icon="settings" v-if="currentURL" @click="settings=!settings" class="">
+            <!-- <i class="material-icons">settings</i> -->
+          </vs-button>
+
+          <transition name="fade">
+            <div class="settings-drop" v-if="settings">
+              <vs-list>
+                <vs-list-header title="Group 1"></vs-list-header>
+                <vs-list-item title="Snickerdoodle" subtitle="An excellent companion">
+                  <vs-button color="danger">One action</vs-button>
+                </vs-list-item>
+                <vs-list-item title="Enable Iframe pointer" subtitle="Allows mouse activity within iframe for scroling clicking etc..">
+                  <vs-checkbox v-model="allowScroll" color="danger" />
+                </vs-list-item>
+              </vs-list>
+            </div>
+          </transition>
+        </div>
+      </div>
     </header>
-    <page-success v-if="currentURL" :current-url="currentURL" :show="show"></page-success>
+    <page-success v-if="currentURL" :current-url="currentURL" :allow-scroll="allowScroll" :show="show"></page-success>
     <div class="image-modal" v-if="images[0]">
       <!-- <img :src="image" :key="image" v-for="image in images" alt=""> -->
       <canvas id="myCanvas" ref="canvas" width="1500" height="900">
