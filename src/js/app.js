@@ -53,7 +53,10 @@ var app = new Vue({
   },
   methods: {
     // var newDiv = document.createElement("img");
-
+    toggleSettings(event){
+      this.settings=!this.settings;
+      event.target.blur()
+    },
     screenshot() {
 
       // navigator.mediaDevices.getUserMedia({

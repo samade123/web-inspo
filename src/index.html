@@ -24,23 +24,25 @@
       <!-- <header :style="{maxHeight: currentURL ? '70px' : '100%', maxWidth: currentURL ? '100%' : '1350px'}"> -->
 
       <div class="title" :style="{fontSize: currentURL ? '14px' : '35px'}">
+        <!-- <span class="text" :class="windowWidth > 600 ? 'wow bounceInUp' : false" data-wow-duration="2s"> -->
         <span class="text">
 
           Responsive Web Checker
         </span>
         <div class="button">
-          <vs-button type="flat" v-if="(currentURL) && (navigator.mediaDevices)" v-on:click="screenshot" class="btn btn-primary">
-            <div><i class="material-icons">camera_alt</i></div><span>Take screenshot</span>
+          <vs-button type="flat" icon="camera_alt" v-if="(currentURL) && (navigator.mediaDevices)" v-on:click="screenshot" class="btn btn-primary">
+            <!-- <div><i class="material-icons">camera_alt</i></div> -->
+            <span>Take screenshot</span>
           </vs-button>
         </div>
         <div class="button">
-          <vs-button type="flat" v-if="currentURL" v-on:click="screenshot" class="btn btn-primary">
-            <i class="material-icons">collections</i>
+          <vs-button type="flat" icon="collections" v-if="currentURL" v-on:click="screenshot" class="btn btn-primary">
+            <!-- <i class="material-icons">collections</i> -->
           </vs-button>
         </div>
       </div>
 
-      <div class="input-div">
+      <div class="input-div wow bounceInUp" data-wow-duration="2s">
         <!-- <div class="url-label">
           Enter site URL Here:
         </div> -->
@@ -57,11 +59,11 @@
           <vs-button type="flat" icon="public" v-on:click="currentURL = liveURL" class="">Enter</vs-button>
         </div>
         <div class="settings-btn">
-          <vs-button type="flat" icon="settings" v-if="currentURL" @click="settings=!settings" class="">
+          <vs-button type="flat" icon="settings" v-if="currentURL" @click="toggleSettings($event)" class="">
             <!-- <i class="material-icons">settings</i> -->
           </vs-button>
 
-          <transition name="fade">
+          <transition name="dropdown">
             <div class="settings-drop" v-if="settings">
               <vs-list>
                 <vs-list-header title="Group 1"></vs-list-header>
@@ -87,9 +89,10 @@
 
   <script src="https://unpkg.com/@ungap/custom-elements-builtin"></script>
   <script type="module" src="https://unpkg.com/x-frame-bypass"></script>
-
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js" integrity="sha256-z6FznuNG1jo9PP3/jBjL6P3tvLMtSwiVAowZPOgo56U=" crossorigin="anonymous"></script>
   <script>
-    // new WOW().init();
+    new WOW().init();
+
     function logScrollPos() {
       // console.log(document.getElementsByClassName("main-body")[0].scrollTop)
       sessionStorage.setItem('scrollPosition', document.getElementsByClassName("main-body")[0].scrollTop);
