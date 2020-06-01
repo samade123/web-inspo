@@ -48,7 +48,7 @@
         <!-- <vs-button icon="file_copy" v-if="navigator.clipboard && windowWidth > 600" v-on:click="paste" class=""> -->
           <!-- <i class="material-icons">file_copy</i> -->
         <!-- </vs-button> -->
-        <vs-input type="url" icon="file_copy" v-if="navigator.clipboard && windowWidth > 600" v-on:icon-click="paste" label-placeholder="Enter Website URL" autofocus v-on:keyup.enter="currentURL = liveURL" v-model="liveURL" ref="input"></vs-input>
+        <vs-input type="url" icon="file_copy" v-if="navigator.clipboard" v-on:icon-click="paste" label-placeholder="Enter Website URL" autofocus v-on:keyup.enter="currentURL = liveURL" v-model="liveURL" ref="input"></vs-input>
         <vs-input type="url" v-else label-placeholder="Enter Website URL" autofocus v-on:keyup.enter="currentURL = liveURL" v-model="liveURL" ref="input"></vs-input>
         <!-- <input type="url" v-on:keyup.enter="currentURL = liveURL" class="form-control" v-model="liveURL"></input> -->
 
