@@ -1,6 +1,19 @@
 .vs-input--input {
   // background: #fff5;
   background: transparent;
+  &:hover {
+    height: 45px;
+  }
+}
+
+.vs-con-input .vs-icon {
+  // background: #fff;
+  transition: font-size 0.3s;
+  &:hover {
+    cursor: pointer;
+    font-size: 22px;
+    color: blue;
+  }
 }
 
 header .input-div .vs-input {
@@ -9,15 +22,15 @@ header .input-div .vs-input {
   width: 100%;
   flex: 1;
   color: #373737;
-  &.active{
 
-    input{
+  &.active {
+    input {
       // width: 100%;
-
       width: 200px;
       transition: width 2s;
 
-      &:focus, &:active{
+      &:active,
+      &:focus {
         // max-width: 100%;
         width: 100%;
       }

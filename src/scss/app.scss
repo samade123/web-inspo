@@ -85,6 +85,16 @@ header {
 
     }
   }
+  .button {
+    flex: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    // width: 100%;
+    button {
+      margin-left: 5px;
+    }
+  }
 
   .input-div {
     flex: 2;
@@ -92,7 +102,7 @@ header {
     flex-direction: row;
     justify-content: flex-start;
     align-items: center;
-    padding: 5px 0;
+    padding: 5px 20px;
     margin-top: 5px;
     // font-size: 1.2em;
     font-weight: bold;

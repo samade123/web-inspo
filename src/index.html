@@ -29,36 +29,37 @@
 
           Scalr </span>
         <div class="button">
-          <vs-button type="flat" icon="camera_alt" v-if="(currentURL) && (navigator.mediaDevices)" v-on:click="screenshot" class="btn btn-primary">
+          <vs-button color="#000" type="line" icon="camera_alt" v-if="(currentURL) && (navigator.mediaDevices)" v-on:click="screenshot" class="btn btn-primary">
             <!-- <div><i class="material-icons">camera_alt</i></div> -->
-            <span>Take screenshot</span>
+            Take screenshot
           </vs-button>
-        </div>
-        <div class="button">
-          <vs-button type="flat" icon="collections" v-if="currentURL" v-on:click="screenshot" class="btn btn-primary">
+          <vs-button color="#000" type="line" icon="collections" v-if="currentURL" v-on:click="screenshot" class="btn btn-primary">
             <!-- <i class="material-icons">collections</i> -->
-          </vs-button>
+            Gallery </vs-button>
         </div>
+        <!-- <div class="button">
+        </div> -->
       </div>
 
       <div class="input-div wow bounceInUp" data-wow-duration="2s">
         <!-- <div class="url-label">
           Enter site URL Here:
         </div> -->
-        <vs-button icon="file_copy" type="flat" v-if="navigator.clipboard && windowWidth > 600" v-on:click="paste" class="">
+        <!-- <vs-button icon="file_copy" v-if="navigator.clipboard && windowWidth > 600" v-on:click="paste" class=""> -->
           <!-- <i class="material-icons">file_copy</i> -->
-        </vs-button>
-        <vs-input type="url" label-placeholder="Enter Website URL" autofocus v-on:keyup.enter="currentURL = liveURL" v-model="liveURL"></vs-input>
+        <!-- </vs-button> -->
+        <vs-input type="url" icon="file_copy" v-if="navigator.clipboard && windowWidth > 600" v-on:icon-click="paste" label-placeholder="Enter Website URL" autofocus v-on:keyup.enter="currentURL = liveURL" v-model="liveURL" ref="input"></vs-input>
+        <vs-input type="url" v-else label-placeholder="Enter Website URL" autofocus v-on:keyup.enter="currentURL = liveURL" v-model="liveURL" ref="input"></vs-input>
         <!-- <input type="url" v-on:keyup.enter="currentURL = liveURL" class="form-control" v-model="liveURL"></input> -->
-        <vs-button icon="file_copy" type="flat" v-if="navigator.clipboard && windowWidth < 600" v-on:click="paste" class="">
-          <!-- <i class="material-icons">file_copy</i> -->
-        </vs-button>
 
-        <div>
-          <vs-button type="flat" icon="public" v-on:click="currentURL = liveURL" class="">Enter</vs-button>
-        </div>
-        <div class="settings-btn">
-          <vs-button type="flat" icon="settings" v-if="currentURL" @click="toggleSettings($event)" class="">
+        <div class="settings-btn button">
+          <!-- <vs-button icon="file_copy" v-if="navigator.clipboard && windowWidth < 600" v-on:click="paste" class=""> -->
+            <!-- <i class="material-icons">file_copy</i> -->
+          <!-- </vs-button> -->
+          <!-- <div> -->
+            <vs-button icon="public" v-on:click="currentURL = liveURL" class="">Enter</vs-button>
+          <!-- </div> -->
+          <vs-button icon="settings" v-if="currentURL" @click="toggleSettings($event)" class="">
             <!-- <i class="material-icons">settings</i> -->
           </vs-button>
 

@@ -23,8 +23,16 @@
         flex: 1;
         width: 100%;
         flex-direction: row;
+        justify-content: flex-start;
+        padding: 2px;
         font-size: 14px;
+        .vs-input {
+          padding: 0;
+        }
       }
+    }
+    .settings-btn {
+      padding-top: 10px;
     }
     .title{
       flex: 0;

@@ -58,6 +58,10 @@
   opacity: 0;
 }
 
-.height {
-  
+.height-drop-enter, .height-drop-leave-to {
+  height: 0;
+}
+
+.height-drop-enter, .height-drop-leave-to {
+  height: 100%;
 }

@@ -131,6 +131,7 @@ var app = new Vue({
         .catch(err => {
           console.error('Failed to read clipboard contents: ', err);
         });
+        this.$refs.input.focus()
     }
   },
   mounted() {}
