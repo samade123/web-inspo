@@ -60,11 +60,12 @@ header {
   color: black;
   padding: 0; // margin: 15px;
   // transition: max-height 0.3s ease-out; // note that we're transitioning max-height, not height!
-  transition: all 0.3s ease-out; // note that we're transitioning max-height, not height!
+  transition: all 0.6s ease-out; // note that we're transitioning max-height, not height!
   box-shadow: #4446 0 0px 2px;
   z-index: 20;
 
   .title {
+    transition: font-size 0.5s ease; // note that we're transitioning max-height, not height!
     flex: 1;
     display: flex;
     flex-direction: row;

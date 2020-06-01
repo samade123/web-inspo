@@ -20,15 +20,14 @@
 
 <body>
   <main v-cloak style="left: 0;">
-    <header :style="{maxHeight: currentURL ? 'fit-content' : '100%'}" ref="header" :class="currentURL ? 'active' : false">
+    <header :style="{height: currentURL ? headerHeight() : '100%'}" ref="header" :class="currentURL ? 'active' : false">
       <!-- <header :style="{maxHeight: currentURL ? '70px' : '100%', maxWidth: currentURL ? '100%' : '1350px'}"> -->
 
-      <div class="title" :style="{fontSize: currentURL ? '14px' : '35px'}">
+      <div class="title" :style="{fontSize: currentURL ? '16px' : '35px'}">
         <!-- <span class="text" :class="windowWidth > 600 ? 'wow bounceInUp' : false" data-wow-duration="2s"> -->
         <span class="text">
 
-          Responsive Web Checker
-        </span>
+          Scalr </span>
         <div class="button">
           <vs-button type="flat" icon="camera_alt" v-if="(currentURL) && (navigator.mediaDevices)" v-on:click="screenshot" class="btn btn-primary">
             <!-- <div><i class="material-icons">camera_alt</i></div> -->
@@ -73,13 +72,19 @@
                 <vs-list-item title="Enable Iframe pointer" subtitle="Allows mouse activity within iframe for scroling clicking etc..">
                   <vs-checkbox v-model="allowScroll" color="danger" />
                 </vs-list-item>
+                <!-- <vs-list-item> -->
+                <!-- <paypal></paypal> -->
+                <!-- </vs-list-item> -->
               </vs-list>
             </div>
           </transition>
         </div>
       </div>
     </header>
+    <!-- <div class="page-wrapper" style="overflow: hidden;"> -->
+
     <page-success v-if="currentURL" :current-url="currentURL" :allow-scroll="allowScroll" :show="show"></page-success>
+    <!-- </div> -->
     <div class="image-modal" v-if="images[0]">
       <!-- <img :src="image" :key="image" v-for="image in images" alt=""> -->
       <canvas id="myCanvas" ref="canvas" width="1500" height="900">

@@ -53,6 +53,9 @@ var app = new Vue({
   },
   methods: {
     // var newDiv = document.createElement("img");
+    headerHeight(){
+      return this.windowWidth > 600 ? "63px" : "109px";
+    },
     toggleSettings(event){
       this.settings=!this.settings;
       event.target.blur()
