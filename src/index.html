@@ -41,7 +41,8 @@
         </div> -->
       </div>
 
-      <div class="input-div wow bounceInUp" data-wow-duration="2s">
+      <!-- <div class="input-div wow bounceInUp" data-wow-duration="2s"> -->
+      <div class="input-div" >
         <!-- <div class="url-label">
           Enter site URL Here:
         </div> -->
@@ -93,11 +94,13 @@
     </div>
   </main>
 
-  <script src="https://unpkg.com/@ungap/custom-elements-builtin"></script>
-  <script type="module" src="https://unpkg.com/x-frame-bypass"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js" integrity="sha256-z6FznuNG1jo9PP3/jBjL6P3tvLMtSwiVAowZPOgo56U=" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/@ungap/custom-elements-builtin" async></script>
+  <script type="module" src="https://unpkg.com/x-frame-bypass" async></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js" integrity="sha256-z6FznuNG1jo9PP3/jBjL6P3tvLMtSwiVAowZPOgo56U=" crossorigin="anonymous"  async></script>
   <script>
-    new WOW().init();
+  // setTimeout(()=> {
+  //   new WOW().init();
+  // }, 250)
 
     function logScrollPos() {
       // console.log(document.getElementsByClassName("main-body")[0].scrollTop)
