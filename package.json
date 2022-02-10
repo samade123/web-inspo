@@ -61,7 +61,7 @@
     "jshint-loader": "^0.8.4",
     "material-design-icons": "^3.0.1",
     "modern-normalize": "^0.6.0",
-    "node-sass": "^4.14.1",
+    "node-sass": "^7.0.0",
     "optimize-css-assets-webpack-plugin": "^5.0.3",
     "precss": "^4.0.0",
     "qr-image": "^3.2.0",
